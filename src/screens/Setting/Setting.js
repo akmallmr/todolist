@@ -7,7 +7,7 @@ export default class Setting extends Component {
             <View style={styles.container}>
             <TouchableOpacity 
             style={styles.button}
-            onPress={()=> this.props.navigation.navigate ('Homescreen')}>
+            onPress={()=> this.props.navigation.navigate ('Home')}>
                 <Text style={styles.buttontext}> Go Back to Home </Text>
             </TouchableOpacity>
                 <Text style={styles.maintext}> Setting Screen </Text>

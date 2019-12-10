@@ -2,11 +2,14 @@ import {React} from 'react';
 import {createAppContainer,createSwitchNavigator} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import { Transition } from 'react-native-reanimated';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 
-import Home from '../screens/Home/Home'
-import Feed from '../screens/Feed/Feed'
-import Profile from '../screens/Profile/Profile'
-import Setting from '../screens/Setting/Setting'
+import AuthNavigator from './AuthNavigator'
+import HomeNavigator from './HomeNavigator'
+import FeedNavigator from './FeedNavigator'
+import ProfileNavigator from './ProfileNavigator'
+import SettingNavigator from './SettingNavigator'
+
 
 // const MySwitch = createAnimatedSwitch (
 //     {
@@ -75,18 +78,46 @@ const NavigationConfig = () => {
     }
 }
 
-const RootApp = createStackNavigator(
+const MainNavigatorModal = createStackNavigator(
   {
-    Homescreen: {screen: Home},
-    Feedscreen: {screen: Feed},
-    Profilescreen: {screen: Profile},
-    Settingscreen: {screen: Setting},
+    Home: {
+      screen: HomeNavigator,
+      navigationOptions: () => ({
+        title: 'Hai',
+        headerStyle: {
+          backgroundColor: 'green',
+        },
+      }),
+    },
+    Feed: {screen: FeedNavigator},
+    Profile: {screen: ProfileNavigator},
+    Setting: {screen: SettingNavigator},
   },
   {
-    // initialRouteName: 'Homescreen',
+    initialRouteName: 'Home',
     transitionConfig: NavigationConfig,
-    headerMode:"none"
+    // headerMode:"none",
+    defaultNavigationOptions: () => ({
+      title: 'Welcome to my App!',
+      headerTintColor: 'blue',
+      headerStyle: {
+        backgroundColor: 'yellow',
+      },
+    }),
+    headerLayoutPreset: 'center',
   },
 );
+
+const RootApp = createSwitchNavigator(
+    {
+        Auth: {screen: AuthNavigator},
+        Main: {screen: MainNavigatorModal}
+    },
+    {
+        initialRouteName: "Auth",
+        headerMode: "none"
+    }
+)
+
 
 export default createAppContainer(RootApp);

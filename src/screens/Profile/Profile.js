@@ -9,7 +9,7 @@ export default class Profile extends Component {
         <TouchableOpacity
           style={styles.button}
           onPress={() =>
-            this.props.navigation.navigate('Feedscreen')
+            this.props.navigation.navigate('Feed')
           }>
             <Text style={styles.textbutton}> Go to Feed </Text>
           </TouchableOpacity>

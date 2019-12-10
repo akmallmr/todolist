@@ -12,7 +12,7 @@ export default class Home extends Component {
           <View style={styles.container}>
             <Text style={styles.maintext}> Homescreen </Text>
             <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('Profilescreen')}
+              onPress={() => this.props.navigation.navigate('Profile')}
               style={styles.button}>
               <Text style={styles.textbutton}> Go to Profile </Text>
             </TouchableOpacity>

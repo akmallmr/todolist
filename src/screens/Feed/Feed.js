@@ -7,13 +7,13 @@ export default class Feed extends Component {
       <View style={styles.container}>
         <TouchableOpacity 
         style={styles.button2}
-        onPress={()=> this.props.navigation.navigate ('Homescreen')}>
+        onPress={()=> this.props.navigation.navigate ('Home')}>
           <Text style={styles.textbutton2}> Go to Home </Text>
         </TouchableOpacity>
         <Text style={styles.maintext}> FeedScreen </Text>
         <TouchableOpacity 
         style={styles.button}
-        onPress={()=> this.props.navigation.navigate ('Settingscreen')}>
+        onPress={()=> this.props.navigation.navigate ('Setting')}>
           <Text style={styles.textbutton}> Setting </Text>
         </TouchableOpacity>
       </View>
