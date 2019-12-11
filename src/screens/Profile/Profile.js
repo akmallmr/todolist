@@ -8,11 +8,9 @@ export default class Profile extends Component {
         <Text style={styles.maintext}> ProfileScreen </Text>
         <TouchableOpacity
           style={styles.button}
-          onPress={() =>
-            this.props.navigation.navigate('Feed')
-          }>
-            <Text style={styles.textbutton}> Go to Feed </Text>
-          </TouchableOpacity>
+          onPress={() => this.props.navigation.navigate('Feed')}>
+          <Text style={styles.textbutton}> Go to Feed </Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -33,11 +31,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#7efff5',
     width: 150,
     height: 50,
-    borderRadius:15,
-    justifyContent: 'center'
+    borderRadius: 15,
+    justifyContent: 'center',
   },
-  textbutton:{
+  textbutton: {
     fontSize: 25,
-    alignSelf: 'center'
-  }
+    alignSelf: 'center',
+  },
 });

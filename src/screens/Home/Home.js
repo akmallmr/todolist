@@ -1,24 +1,19 @@
-import React, { Component } from 'react'
-import { 
-    Text, 
-    View,
-    StyleSheet,
-    TouchableOpacity
-} from 'react-native'
+import React, {Component} from 'react';
+import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 
-export default class Home extends Component {
-    render() {
-        return (
-          <View style={styles.container}>
-            <Text style={styles.maintext}> Homescreen </Text>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('Profile')}
-              style={styles.button}>
-              <Text style={styles.textbutton}> Go to Profile </Text>
-            </TouchableOpacity>
-          </View>
-        );
-    }
+class Home extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.maintext}> Homescreen </Text>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate('Profile')}
+          style={styles.button}>
+          <Text style={styles.textbutton}> Go to Profile </Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -36,11 +31,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#ff793f',
     width: 150,
     height: 50,
-    borderRadius:15,
-    justifyContent:'center'
+    borderRadius: 15,
+    justifyContent: 'center',
   },
-  textbutton:{
-    alignSelf:'center',
-    fontSize: 20
-  }
+  textbutton: {
+    alignSelf: 'center',
+    fontSize: 20,
+  },
 });
+
+export default Home;

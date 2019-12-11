@@ -13,7 +13,7 @@ export default class login extends Component {
                 </TouchableOpacity>
                 <TouchableOpacity
                 style={styles.button2}
-                onPress={()=>this.props.navigation.navigate('Home')}>
+                onPress={()=>this.props.navigation.navigate('Dashboard')}>
                     <Text style={styles.textbutton2}>Skip this</Text>
                 </TouchableOpacity>
             </View>
