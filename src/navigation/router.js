@@ -1,11 +1,10 @@
-import {React} from 'react';
+import React, {Component} from 'react';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import {View, Text} from 'react-native';
 import {Transition} from 'react-native-reanimated';
-
 
 
 import AuthNavigator from './AuthNavigator';
@@ -59,18 +58,34 @@ const NavigationConfig = () => {
 };
 
 const DashboardTabNavigation = createBottomTabNavigator({
-  Home, //Harus Screen
-  Feed, //Harus Screen
-  Setting, //Harus Screen
+  Home: {screen: Home}, //Harus Screen
+
+  Feed: {screen: Feed}, //Harus Screen
+  Setting: {screen: Setting}, //Harus Screen
+},
+{
+  navigationOptions: ({navigation}) => {
+    const { routeName } = navigation.state.routes
+    [navigation.state.index];
+      return {
+        headerTitle: routeName,
+      };
+  }
 });
+
 const DashboardStackNavigation = createStackNavigator({
   DashboardTabNavigation: DashboardTabNavigation
+},
+{
+  transitionConfig: NavigationConfig,
+  headerLayoutPreset: 'center'
 })
 
 const AppDrawerNavigation = createDrawerNavigator({
   Dashboard: {
     screen: DashboardStackNavigation
   },
+  
   Profile: {
     screen: ProfileNavigator
   }
