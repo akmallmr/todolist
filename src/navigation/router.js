@@ -3,12 +3,17 @@ import {createAppContainer,createSwitchNavigator} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import { Transition } from 'react-native-reanimated';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
+import {createDrawerNavigator} from 'react-navigation-drawer'
 
 import AuthNavigator from './AuthNavigator'
 import HomeNavigator from './HomeNavigator'
 import FeedNavigator from './FeedNavigator'
 import ProfileNavigator from './ProfileNavigator'
 import SettingNavigator from './SettingNavigator'
+
+import Home from '../screens/Home/Home'
+import Feed from '../screens/Feed/Feed'
+import Setting from '../screens/Setting/Setting'
 
 
 // const MySwitch = createAnimatedSwitch (
@@ -78,32 +83,33 @@ const NavigationConfig = () => {
     }
 }
 
-const MainNavigatorModal = createStackNavigator(
+const HomeTabNavigator = createBottomTabNavigator({
+  Home,
+  Feed,
+  Setting
+})
+
+const MainNavigatorModal = createDrawerNavigator(
   {
     Home: {
-      screen: HomeNavigator,
+      screen: HomeTabNavigator,
       navigationOptions: () => ({
-        title: 'Hai',
-        headerStyle: {
-          backgroundColor: 'green',
-        },
+        title: 'Home',
       }),
     },
-    Feed: {screen: FeedNavigator},
+    // Feed: {
+    //   screen: FeedNavigator,
+    //   navigationOptions: () => ({
+    //     title: 'Feed',
+    //   }),
+    // },
     Profile: {screen: ProfileNavigator},
-    Setting: {screen: SettingNavigator},
+    // Setting: {screen: SettingNavigator},
   },
   {
     initialRouteName: 'Home',
     transitionConfig: NavigationConfig,
     // headerMode:"none",
-    defaultNavigationOptions: () => ({
-      title: 'Welcome to my App!',
-      headerTintColor: 'blue',
-      headerStyle: {
-        backgroundColor: 'yellow',
-      },
-    }),
     headerLayoutPreset: 'center',
   },
 );
@@ -118,6 +124,7 @@ const RootApp = createSwitchNavigator(
         headerMode: "none"
     }
 )
+
 
 
 export default createAppContainer(RootApp);
