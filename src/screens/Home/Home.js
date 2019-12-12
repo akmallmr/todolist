@@ -7,9 +7,14 @@ class Home extends Component {
       <View style={styles.container}>
         <Text style={styles.maintext}> Homescreen </Text>
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('Profile')}
+          onPress={() => this.props.navigation.navigate('Edit')}
           style={styles.button}>
-          <Text style={styles.textbutton}> Go to Profile </Text>
+          <Text style={styles.textbutton}> Go to Edit </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate('Detail')}
+          style={styles.button}>
+          <Text style={styles.textbutton}> Home Detail </Text>
         </TouchableOpacity>
       </View>
     );
@@ -33,6 +38,7 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 15,
     justifyContent: 'center',
+    marginBottom: 10
   },
   textbutton: {
     alignSelf: 'center',

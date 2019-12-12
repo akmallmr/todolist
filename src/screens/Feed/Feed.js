@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 
-export default class Feed extends Component {
+class Feed extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -57,3 +57,5 @@ const styles = StyleSheet.create({
       
   }
 });
+
+export default Feed
