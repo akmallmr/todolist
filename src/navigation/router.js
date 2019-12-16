@@ -21,6 +21,8 @@ import Setting from '../screens/Setting/Setting';
 import Edit from '../screens/Home/Edit/Edit'
 import Detail from '../screens/Home/Home Details/Detail'
 
+import Splash from '../screens/Splash/index'
+
 const HomeStack = createStackNavigator(
   {
     Home: {
@@ -47,19 +49,19 @@ const HomeStack = createStackNavigator(
   },
 );
 
-const FeedStack = createStackNavigator (
-  {
-    Feed: {
-      screen: Feed,
-    },
-    updatedNews: {
-      screen: News,
-    },
-    latestNews: {
-      screen: latestNews
-    }
-  }
-)
+// const FeedStack = createStackNavigator (
+//   {
+//     Feed: {
+//       screen: Feed,
+//     },
+//     updatedNews: {
+//       screen: News,
+//     },
+//     latestNews: {
+//       screen: latestNews
+//     }
+//   }
+// )
 
 const FadeTransition = (index, position) => {
   const sceneRange = [index - 1, index];
@@ -190,8 +192,9 @@ const AppDrawerNavigation = createDrawerNavigator({
 
 const RootApp = createSwitchNavigator(
   {
-    Auth: {screen: AuthNavigator},
-    Main: {screen: AppDrawerNavigation},
+    Splash: { screen: Splash},
+    Auth: { screen: AuthNavigator },
+    Main: { screen: AppDrawerNavigation },
   },
   {
     initialRouteName: 'Auth',
